@@ -6,3 +6,6 @@ https://amazon-clone-seven-iota.vercel.app
 
 Tech Used:
 Javascript, Next.js (SSR), React.js, TailwindCSS
+
+TODO:
+    add full product page

@@ -8,6 +8,8 @@ Tech Used:
 Javascript, Next.js (SSR), React.js, TailwindCSS, Redux, NextAuth.js, Stripe, Firebase
 
 TODO:
+- add documentation
+- add testing
 - better sign out UI
 - website demo
 - add similar items to product page

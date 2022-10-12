@@ -106,6 +106,11 @@ These are features that are in progress and would improve the functionality of t
 - add loading states
 - cant access success without success
 
+## Testing Stripe
+
+To test stripe use the fake card number as documented here.
+https://stripe.com/docs/testing#testing-interactively
+
 ## Running Locally
 
 Some notes to build and test the project on local device.

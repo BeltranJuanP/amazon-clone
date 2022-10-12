@@ -3,9 +3,10 @@ import Currency from 'react-currency-formatter';
 import Image from "next/image"
 import { useDispatch } from "react-redux";
 import { addToCart, removeFromCart } from "../slices/cartSlice";
+import { useRouter } from 'next/router'
 
 function CheckoutProduct({ id, title, price, rating, description, category, image, hasPrime}) {
-    
+    const router = useRouter()
     const dispatch = useDispatch();
 
     const addItemtoCart = () => {
@@ -31,7 +32,7 @@ function CheckoutProduct({ id, title, price, rating, description, category, imag
             <Image src={image} height={200} width={200} objectFit="contain" />
 
             <div className="col-span-3 mx-5">
-                <p>{title}</p>
+                <p className="cursor-pointer" onClick={() => router.push(`/products/${id}`)}>{title}</p>
                 <div className="flex">
                     {Array(rating).fill().map((_, i) => (
                         <StarIcon className="h-5 text-yellow-500" key={i}/>

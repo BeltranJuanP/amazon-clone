@@ -4,9 +4,13 @@ import { StarIcon } from "@heroicons/react/solid";
 import Currency from 'react-currency-formatter';
 import { useDispatch } from "react-redux";
 import { addToCart } from "../slices/cartSlice"
+import { useRouter } from 'next/router'
+
 
 function Product({id, title, price, description, category, image}) {
     const dispatch = useDispatch()
+
+    const router = useRouter()
 
     const [rating, setRating] = useState(
         Math.floor(Math.random() * (5 - 1 + 1)) + 1
@@ -34,7 +38,7 @@ function Product({id, title, price, description, category, image}) {
 
             <Image src={image} height={200} width={200} objectFit="contain"/>
 
-            <h4 className="my-3">{title}</h4>
+            <h4 className="my-3 cursor-pointer" onClick={() => router.push(`/products/${id}`)}>{title}</h4>
 
             <div className="flex">
                 {Array(rating).fill().map((_, i) => (

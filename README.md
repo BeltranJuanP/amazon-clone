@@ -108,7 +108,7 @@ These are features that are in progress and would improve the functionality of t
 
 ## Testing Stripe
 
-To test stripe use the fake card number as documented here.
+To test Stripe use the fake card number as documented here.
 https://stripe.com/docs/testing#testing-interactively
 
 ## Running Locally

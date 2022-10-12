@@ -16,6 +16,7 @@ TODO:
 - on objects with prime there shouldn't be any shipping cost
 - shopping cart sign in to checkout loses all the items in the cart
 - clean up the website by maybe adding some animations
+- add loading states
 - cant access success without success
 
 

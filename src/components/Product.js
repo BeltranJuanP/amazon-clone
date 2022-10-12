@@ -55,7 +55,7 @@ function Product({id, title, price, description, category, image}) {
                 </div>
             )}
 
-            <button onClick={addItemtoCart} className="mt-auto button">Add to Basket</button>
+            <button onClick={addItemtoCart} className="mt-auto button">Add to Cart</button>
         </div>
     )
 }

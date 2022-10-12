@@ -6,12 +6,34 @@ import Footer from "../components/Footer"
 import Header from "../components/Header"
 import Currency from 'react-currency-formatter';
 import { selectItems, selectTotal } from "../slices/cartSlice"
+import axios from "axios"
+import { loadStripe } from "@stripe/stripe-js"
+const stripePromise = loadStripe(process.env.stripe_public_key)
 
 function Checkout() {
     const { data: session, status } = useSession()
-
     const items = useSelector(selectItems)
     const total = useSelector(selectTotal)
+
+    const createCheckoutSession = async () => {
+        const stripe = await stripePromise
+
+        // call server to create a checkout session
+        const checkoutSession = await axios.post('/api/create-checkout-session', 
+        {
+            items: items,
+            email: session.user.email,
+        })
+
+        // redirect to Stripe
+        const result = await stripe.redirectToCheckout({
+            sessionId: checkoutSession.data.id
+        })
+
+        if (result.error) {
+            alert(result.error.message)
+        }
+    }
 
     return (
         <div className="bg-gray-100">
@@ -58,7 +80,7 @@ function Checkout() {
                                 </span>
                             </h2>
 
-                            <button disabled={!session} className={`button mt-2 ${!session && 'from-gray-300 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed'}`}>
+                            <button onClick={createCheckoutSession} role="link" disabled={!session} className={`button mt-2 ${!session && 'from-gray-300 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed'}`}>
                                 {(status !== "authenticated") ? "Sign in to checkout" : "Proceed to checkout"}
                             </button>
                         </>

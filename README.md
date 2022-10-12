@@ -8,10 +8,12 @@ Tech Used:
 Javascript, Next.js (SSR), React.js, TailwindCSS, Redux, NextAuth.js, Stripe
 
 TODO:
-- add full product page
 - better sign out UI
 - website demo
+- add similar items to product page
+- expand the product database to include things like prime and rating
 - add quantity to cart
+- on objects with prime there shouldn't be any shipping cost
 - shopping cart sign in to checkout loses all the items in the cart
 - clean up the website by maybe adding some animations
 - cant access success without success
